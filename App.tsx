@@ -1,15 +1,8 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-  useColorScheme,
-} from 'react-native';
+import {SafeAreaView, StyleSheet, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Home} from './src/Home';
 
 export function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -19,30 +12,16 @@ export function App() {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>Hello Word Top Manga</Text>
-        </View>
-      </ScrollView>
+    <SafeAreaView style={[backgroundStyle, styles.container]}>
+      <Home />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
+  container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
   },
 });
